@@ -1,6 +1,4 @@
-/* =================================================================== */
-/* 1. RESET & BASE STYLES (MOBILE-FIRST APPROACH)                      */
-/* =================================================================== */
+/* 1. RESET & BASE STYLES (MOBILE-FIRST APPROACH)*/
 
 :root {
   --primary-color: #e53935;
@@ -46,9 +44,7 @@ img {
   display: block;
 }
 
-/* =================================================================== */
-/* 2. LAYOUT & HEADER (MOBILE-FIRST)                                   */
-/* =================================================================== */
+/* 2. LAYOUT & HEADER (MOBILE-FIRST) */
 
 .header-top {
   display: flex;

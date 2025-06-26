@@ -1,5 +1,3 @@
-// assets/js/script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // Kiểm tra dữ liệu sản phẩm có được tải không
   if (typeof allProducts === "undefined") {
@@ -9,33 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // =================================================================
   // CÁC BIẾN VÀ THAM CHIẾU DOM
-  // =================================================================
   const featuredProductsSlider = document.getElementById(
     "featured-products-slider"
   ); // Slider cho sản phẩm nổi bật trên trang chủ
-  const productGrid = document.getElementById("product-grid"); // Lưới sản phẩm chung (dùng trên products.html)
-  const flashSaleGrid = document.querySelector(".flash-sale-grid"); // Lưới sản phẩm Flash Sale
-  const mainboardGrid = document.getElementById("mainboard-grid"); // Lưới sản phẩm Mainboard riêng trên trang chủ
+  const productGrid = document.getElementById("product-grid");
+  const flashSaleGrid = document.querySelector(".flash-sale-grid");
+  const mainboardGrid = document.getElementById("mainboard-grid");
   const mainContent = document.querySelector(".main-content");
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.getElementById("search-btn");
   const sidebar = document.getElementById("sidebar");
   const sidebarToggle = document.getElementById("sidebar-toggle");
   const categoryLinks = document.querySelectorAll(".nav-categories .category");
-  // cartCountElement will be updated dynamically, so no need for initial const
   const fixedMenuBtn = document.getElementById("fixed-header-menu-btn");
-  const pageTitleElement = mainContent?.querySelector("h2"); // Sử dụng optional chaining
+  const pageTitleElement = mainContent?.querySelector("h2");
   const documentTitle = document.querySelector("title");
   const expandSidebarBtn = document.getElementById("expand-sidebar-btn");
   const navCategories = sidebar
     ? sidebar.querySelector(".nav-categories")
     : null;
   const fabMenu = document.getElementById("fab-menu");
-  const authStatusElement = document.getElementById("auth-status"); // Thêm biến này
+  const authStatusElement = document.getElementById("auth-status");
 
-  // Debug: Kiểm tra các phần tử DOM có được tìm thấy không
   console.log("DOM elements initialized:");
   console.log("featuredProductsSlider:", featuredProductsSlider);
   console.log(
@@ -45,9 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("flashSaleGrid:", flashSaleGrid);
   console.log("mainboardGrid:", mainboardGrid);
 
-  // =================================================================
   // LOGIC GIỎ HÀNG (CART)
-  // =================================================================
 
   /**
    * Lấy giỏ hàng từ localStorage
@@ -58,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Lưu giỏ hàng vào localStorage và cập nhật số lượng trên icon
    * @param {Array} cart - Mảng các sản phẩm trong giỏ hàng
    */
   function saveCart(cart) {
@@ -70,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
    * Cập nhật số lượng sản phẩm trên icon giỏ hàng
    */
   function updateCartCounter() {
-    // IMPORTANT: Re-select cartCountElement every time to ensure it's the current one in DOM
     const cartCountElement = document.getElementById("cart-count"); //
     const cart = getCart(); //
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0); //
@@ -120,9 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
   }
 
-  // =================================================================
   // CÁC HÀM HIỂN THỊ SẢN PHẨM
-  // =================================================================
 
   /**
    * Hiển thị danh sách sản phẩm ra màn hình
@@ -169,9 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // =================================================================
   // LOGIC TÌM KIẾM & LỌC DANH MỤC
-  // =================================================================
 
   /**
    * Xử lý chức năng tìm kiếm sản phẩm
@@ -196,9 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =================================================================
   // LOGIC KHỞI TẠO TRANG
-  // =================================================================
 
   // Cập nhật bộ đếm giỏ hàng ngay khi tải trang
   updateCartCounter();
@@ -220,8 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (categoryFromUrl === "all") {
         productsToRender = allProducts;
         if (pageTitleElement) pageTitleElement.textContent = "Tất cả sản phẩm";
-        if (documentTitle)
-          documentTitle.textContent = "Tất cả sản phẩm | GEARVN Clone";
+        if (documentTitle) documentTitle.textContent = "Tất cả sản phẩm";
       } else {
         productsToRender = allProducts.filter(
           (p) => p.category === categoryFromUrl
@@ -233,8 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ? categoryLink.textContent
           : "Sản phẩm";
         if (pageTitleElement) pageTitleElement.textContent = categoryName;
-        if (documentTitle)
-          documentTitle.textContent = categoryName + " | GEARVN Clone";
+        if (documentTitle) documentTitle.textContent = categoryName;
       }
       setActiveCategory(categoryFromUrl);
     } else if (searchTermFromUrl) {
@@ -244,14 +226,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (pageTitleElement)
         pageTitleElement.textContent = `Kết quả cho "${searchTermFromUrl}"`;
       if (documentTitle)
-        documentTitle.textContent = `Tìm kiếm: ${searchTermFromUrl} | GEARVN Clone`;
+        documentTitle.textContent = `Tìm kiếm: ${searchTermFromUrl} `;
       setActiveCategory("");
     } else {
       // Mặc định cho trang products.html nếu không có params (hiển thị tất cả sản phẩm)
       productsToRender = allProducts;
       if (pageTitleElement) pageTitleElement.textContent = "Tất cả sản phẩm";
-      if (documentTitle)
-        documentTitle.textContent = "Tất cả sản phẩm | GEARVN Clone";
+      if (documentTitle) documentTitle.textContent = "Tất cả sản phẩm ";
       setActiveCategory("all");
     }
     // Render sản phẩm vào #product-grid trên products.html (sẽ là một lưới CSS)
@@ -265,7 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Fallback nếu không có sản phẩm nổi bật
       featuredProducts = allProducts.slice(0, 10);
     }
-    // Tiêu đề trang chủ được cố định trong HTML, không cần cập nhật động ở đây
     setActiveCategory("all"); // Giữ 'Tất cả' active trong sidebar cho trang chủ
 
     // Render sản phẩm nổi bật vào slider trên index.html
@@ -288,9 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // =================================================================
   // GÁN SỰ KIỆN CHUNG
-  // =================================================================
 
   // Sự kiện tìm kiếm
   searchBtn.addEventListener("click", (e) => {
@@ -361,14 +339,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const categoryName =
           cat === "all" ? "Tất cả sản phẩm" : link.textContent;
         if (pageTitleElement) pageTitleElement.textContent = categoryName;
-        if (documentTitle)
-          documentTitle.textContent = categoryName + " | GEARVN Clone";
+        if (documentTitle) documentTitle.textContent = categoryName;
         setActiveCategory(cat);
       }
     });
   });
 
-  // Global delegated event listener for "Mua ngay" buttons
   // Gắn một listener duy nhất vào body để xử lý tất cả các nút "Mua ngay"
   document.body.addEventListener("click", function (e) {
     const btn = e.target.closest(".buy-btn"); // Tìm phần tử gần nhất là .buy-btn
@@ -380,18 +356,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (productId) {
         addToCart(productId);
         btn.textContent = "Đã thêm!";
-        btn.classList.add("added"); // Thêm class 'added' để đổi màu
-        btn.disabled = true; // Vô hiệu hóa nút
+        btn.classList.add("added");
+        btn.disabled = true;
         setTimeout(() => {
           btn.textContent = "Mua ngay";
-          btn.classList.remove("added"); // Xóa class 'added'
+          btn.classList.remove("added");
           btn.disabled = false; // Kích hoạt lại nút
         }, 1200);
       }
     }
   });
 
-  // ===================== BANNER SLIDER =====================
+  //  BANNER SLIDER
   function initBannerSlider() {
     const slider = document.getElementById("banner-slider");
     if (!slider) return;
@@ -492,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ================== HIỂN THỊ TRẠNG THÁI ĐĂNG NHẬP HEADER ==================
+//  HIỂN THỊ TRẠNG THÁI ĐĂNG NHẬP HEADER
 function updateAuthUI() {
   const authStatusElement = document.getElementById("auth-status");
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -517,9 +493,9 @@ function updateAuthUI() {
     } else {
       // Không đăng nhập vẫn hiển thị số lượng sản phẩm trong giỏ hàng
       authStatusElement.innerHTML = `
-        <a href="pages/login.html">Đăng nhập</a> /
-        <a href="pages/register.html">Đăng ký</a>
-        <a href="pages/cart.html" class="cart-icon">🛒 <span id="cart-count">${totalItems}</span></a>
+        <a href="/pages/login.html">Đăng nhập</a> /
+        <a href="/pages/register.html">Đăng ký</a>
+        <a href="/pages/cart.html" class="cart-icon">🛒 <span id="cart-count">${totalItems}</span></a>
       `;
     }
   }
