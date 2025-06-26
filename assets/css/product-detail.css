@@ -1,0 +1,464 @@
+/* assets/css/product-detail.css */
+
+/* Global variables from styles.css are implicitly available */
+
+.product-detail-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Default 1 column for mobile */
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  padding: 16px;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Product Image Gallery */
+.product-detail-image {
+  display: flex;
+  flex-direction: column; /* Stack main image and thumbs vertically */
+  align-items: center;
+  gap: 15px; /* Space between main image and thumbnails */
+  padding: 20px;
+  background-color: var(--light-bg-secondary); /* Slightly off-white background */
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color); /* Subtle border */
+}
+
+.gallery-main {
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-main img {
+  max-width: 100%;
+  max-height: 380px; /* Increased max-height for main image */
+  object-fit: contain;
+  border-radius: 8px;
+  /* Removed individual box-shadow here to avoid double shadow */
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap; /* Allow thumbnails to wrap on smaller screens */
+  gap: 10px;
+  justify-content: center;
+  padding: 0 10px; /* Add some horizontal padding */
+}
+
+.gallery-thumb {
+  width: 64px; /* Slightly larger thumbnails */
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px; /* Slightly more rounded corners */
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.gallery-thumb:hover,
+.gallery-thumb.active-thumb { /* Add active state for current thumbnail */
+  border-color: var(--primary-color);
+  transform: scale(1.05); /* Slight scale on hover/active */
+}
+
+
+/* Product Information */
+.product-detail-info h1 {
+  font-size: 30px; /* Slightly larger heading */
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--dark-gray-text-color); /* Darker text for main heading */
+}
+
+.product-detail-info .badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--secondary-color) 60%, var(--primary-color) 100%);
+  color: var(--white);
+  font-size: 13px; /* Slightly smaller badge font */
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  margin-right: 8px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px var(--primary-color-alpha-08);
+  text-transform: uppercase; /* Uppercase for tags */
+}
+
+.brand-warranty-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 20px; /* Reduced gap */
+  margin-bottom: 10px;
+  font-size: 14px; /* Slightly smaller font */
+  color: var(--gray-text-color);
+}
+.brand-warranty-row .brand b,
+.brand-warranty-row .warranty b {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.stock-rating-row {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 20px; /* Reduced gap */
+  align-items: center;
+  margin-bottom: 16px;
+}
+.stock-status {
+  font-size: 15px;
+  color: #28a745; /* A standard green for stock */
+  font-weight: bold;
+}
+.rating {
+  font-size: 15px;
+  color: #ffc107; /* Amber color for rating */
+  font-weight: bold;
+  display: flex; /* Align stars and number */
+  align-items: center;
+}
+.stars {
+  color: #ffc107;
+  font-size: 18px; /* Slightly larger stars */
+  margin-right: 4px; /* Space between stars and number */
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+  padding-bottom: 20px;
+}
+
+.product-detail-info .old-price {
+  color: var(--gray-text-color);
+  text-decoration: line-through;
+  font-size: 20px; /* Larger old price */
+  font-weight: 400;
+}
+
+.product-detail-info .flash-sale-price {
+  color: var(--primary-color);
+  font-size: 36px; /* Significantly larger flash sale price */
+  font-weight: 700;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* Product Specifications Table */
+.product-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px; /* More space below table */
+  background: var(--light-bg-secondary);
+  border-radius: 12px; /* More rounded corners */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+}
+
+.product-specs-table th,
+.product-specs-table td {
+  padding: 12px 18px; /* More padding */
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  font-size: 15px;
+}
+
+.product-specs-table th {
+  background: var(--light-gray); /* Lighter header background */
+  color: var(--primary-color);
+  font-weight: 700;
+  width: 180px; /* Slightly wider header column */
+}
+
+.product-specs-table tr:nth-child(even) { /* Zebra striping */
+  background-color: var(--white);
+}
+
+.product-specs-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Buy Button */
+.detail-buy-btn {
+  width: 100%;
+  padding: 18px; /* Increased padding for a larger button */
+  font-size: 20px; /* Larger font size */
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px; /* More rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px var(--primary-color-alpha-20); /* Add shadow */
+}
+
+.detail-buy-btn:hover {
+  background-color: var(--primary-color-hover);
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 16px var(--primary-color-alpha-20);
+}
+
+.detail-buy-btn:disabled {
+  background-color: #cccccc; /* Gray out when disabled */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+
+/* Product Not Found */
+.product-not-found {
+  text-align: center;
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.product-not-found h2 {
+  font-size: 26px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+.product-not-found p {
+  color: var(--gray-text-color);
+  margin-bottom: 20px;
+}
+.product-not-found a {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+.product-not-found a:hover {
+  background-color: var(--secondary-color-hover);
+}
+
+
+/* Product Reviews */
+.product-reviews {
+  margin-top: 48px; /* Increased top margin */
+  background: var(--white); /* Changed to white background */
+  border-radius: 12px; /* More rounded corners */
+  padding: 24px; /* More padding */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+}
+.product-reviews h2 {
+  font-size: 22px; /* Larger heading */
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center; /* Center align review heading */
+}
+.reviews-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.review-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 0; /* Increased padding */
+}
+.review-item:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+.review-user {
+  font-weight: bold;
+  color: var(--dark-gray-text-color);
+  margin-bottom: 4px; /* More space */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between user name and stars */
+}
+.review-comment {
+  font-size: 15px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+.no-reviews {
+  color: var(--gray-text-color);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+
+/* Related Products */
+.related-products {
+  margin-top: 48px;
+  background: var(--white); /* White background for consistency */
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.related-products h2 {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.related-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjust minmax for better mobile fit */
+  gap: 18px;
+}
+.related-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--light-bg-secondary); /* Lighter background for cards */
+  border-radius: 10px; /* Slightly more rounded */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  padding: 12px 8px 10px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dark-gray-text-color);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid var(--border-color);
+}
+.related-card:hover {
+  box-shadow: 0 6px 18px var(--primary-color-alpha-10);
+  transform: translateY(-3px) scale(1.02);
+}
+.related-card img {
+  width: 100px; /* Consistent image size */
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+.related-name {
+  font-size: 14px; /* Slightly smaller font for related names */
+  font-weight: 600;
+  margin-bottom: 4px;
+  min-height: 34px; /* Ensure consistent height for product names */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.related-price {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: bold;
+}
+.related-card .old-price {
+  color: var(--gray-text-color);
+  text-decoration: line-through;
+  font-size: 12px; /* Smaller old price */
+  margin-right: 4px;
+}
+.related-card .flash-sale-price {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+/* Responsive for Tablet and up */
+@media (min-width: 768px) {
+  .product-detail-container {
+    grid-template-columns: 1fr 1.5fr; /* More space for info column */
+    gap: 40px; /* Increased gap */
+    padding: 32px;
+  }
+  .product-detail-image {
+    padding: 30px;
+  }
+  .gallery-main img {
+    max-height: 450px; /* Larger main image on tablet */
+  }
+  .gallery-thumbs {
+    gap: 15px; /* Larger gap for thumbnails */
+  }
+  .gallery-thumb {
+    width: 70px;
+    height: 70px;
+  }
+  .product-detail-info h1 {
+    font-size: 34px;
+  }
+  .product-detail-info .flash-sale-price {
+    font-size: 40px;
+  }
+  .detail-buy-btn {
+    padding: 20px;
+    font-size: 22px;
+  }
+  .product-reviews h2, .related-products h2 {
+    text-align: left; /* Align headings left on larger screens */
+  }
+  .related-list {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* Responsive for Desktop and up */
+@media (min-width: 1024px) {
+  .main-layout {
+    max-width: 1200px; /* Constrain max-width for content */
+    margin: 32px auto;
+    padding: 0 20px; /* Adjust main layout padding */
+    display: block; /* Override flex from styles.css to allow sections to stack */
+  }
+  .product-detail-container {
+    grid-template-columns: 1fr 1.8fr; /* Even more space for info */
+    padding: 40px;
+    margin-bottom: 40px; /* Space between detail and review/related */
+  }
+  .gallery-main img {
+    max-height: 500px; /* Even larger main image on desktop */
+  }
+  .gallery-thumbs {
+    gap: 18px;
+  }
+  .gallery-thumb {
+    width: 80px;
+    height: 80px;
+  }
+  .related-products {
+    margin-top: 0; /* No top margin as it follows reviews */
+  }
+  .product-reviews {
+    margin-top: 40px; /* Space between detail container and reviews */
+  }
+  .product-reviews, .related-products {
+    padding: 32px; /* More padding for these sections */
+  }
+  .related-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for related on desktop */
+  }
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GEARVN Clone - Chuyên linh kiện PC, PC gaming, và phụ kiện chất lượng cao."
+    />
+    <title>GEARVN Clone</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/chatbot.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome cho Social Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-top">
+        <div class="hotline-info">
+          <span
+            >Hotline: <b>0968 239 497</b> - <b>097 221 6881</b> | Tư vấn Build
+            PC: <b>0986552233</b></span
+          >
+          <span
+            >Địa chỉ: CS1: 83-85 Thái Hà - Đống Đa - Hà Nội | CS2: 83A Cửu Long
+            - Q10 - TP.HCM</span
+          >
+        </div>
+      </div>
+      <div class="header-main">
+        <button id="fixed-header-menu-btn" aria-label="Mở danh mục">☰</button>
+        <button
+          class="sidebar-toggle"
+          id="sidebar-toggle"
+          aria-label="Mở danh mục"
+        >
+          ☰ Danh mục
+        </button>
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/image/logo.png" alt="GEARVN Logo" loading="lazy" />
+          </a>
+        </div>
+        <form class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Tìm kiếm sản phẩm..."
+            aria-label="Search products"
+          />
+          <button id="search-btn" aria-label="Search">🔍</button>
+        </form>
+        <div class="header-user">
+          <div id="auth-status">
+            <a href="/pages/login.html">Đăng nhập</a>
+            <a href="/pages/register.html">Đăng ký</a>
+            <a href="/pages/cart.html" class="cart-icon"
+              >🛒 <span id="cart-count">0</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <aside class="sidebar" id="sidebar">
+        <h3>Danh mục linh kiện PC</h3>
+        <ul class="nav-categories">
+          <li>
+            <a
+              href="/pages/products.html?category=all"
+              class="category"
+              data-category="all"
+              >Tất cả</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=cpu"
+              class="category"
+              data-category="cpu"
+              >CPU - Bộ vi xử lý</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=gpu"
+              class="category"
+              data-category="gpu"
+              >GPU - Card màn hình</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=mainboard"
+              class="category"
+              data-category="mainboard"
+              >Mainboard - Bo mạch chủ</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=ram"
+              class="category"
+              data-category="ram"
+              >RAM - Bộ nhớ trong</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=ssd"
+              class="category"
+              data-category="ssd"
+              >SSD - Ổ cứng SSD</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=hdd"
+              class="category"
+              data-category="hdd"
+              >HDD - Ổ cứng HDD</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=psu"
+              class="category"
+              data-category="psu"
+              >PSU - Nguồn máy tính</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=case"
+              class="category"
+              data-category="case"
+              >Case - Vỏ máy tính</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=cooler"
+              class="category"
+              data-category="cooler"
+              >Tản nhiệt</a
+            >
+          </li>
+          <li>
+            <a
+              href="/pages/products.html?category=monitor"
+              class="category"
+              data-category="monitor"
+              >Màn hình</a
+            >
+          </li>
+        </ul>
+      </aside>
+      <section class="main-content" data-page-category="">
+        <div class="banner-row">
+          <div class="banner-main">
+            <div class="banner-slider" id="banner-slider">
+              <img
+                src="assets/image/banner-main-1.png"
+                alt="Banner 1"
+                class="banner-slide active"
+                loading="lazy"
+              />
+              <img
+                src="assets/image/banner-main-2.png"
+                alt="Banner 2"
+                class="banner-slide"
+                loading="lazy"
+              />
+              <img
+                src="assets/image/banner-main-3.png"
+                alt="Banner 3"
+                class="banner-slide"
+                loading="lazy"
+              />
+              <img
+                src="assets/image/banner-main-4.png"
+                alt="Banner 4"
+                class="banner-slide"
+                loading="lazy"
+              />
+              <button class="banner-prev" id="banner-prev" aria-label="Trước">
+                &#10094;
+              </button>
+              <button class="banner-next" id="banner-next" aria-label="Sau">
+                &#10095;
+              </button>
+              <div class="banner-dots" id="banner-dots"></div>
+            </div>
+          </div>
+          <div class="banner-side">
+            <div class="banner-side-item">
+              <img
+                src="/assets/image/banner-side-1.png"
+                alt="CPU"
+                loading="lazy"
+              />
+            </div>
+            <div class="banner-side-item">
+              <img
+                src="/assets/image/banner-side-2.png"
+                alt="GPU"
+                loading="lazy"
+              />
+            </div>
+            <div class="banner-side-item">
+              <img
+                src="/assets/image/banner-side-3.png"
+                alt="GPU"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="showroom-info">
+          <span>Showroom 1: 83-85 Thái Hà, Đống Đa, Hà Nội</span>
+          <span>Showroom 2: 83A Cửu Long, P15, Q10, TP.HCM</span>
+        </div>
+      </section>
+    </main>
+
+    <section class="flash-sale">
+      <h2>⚡ FLASH SALE - GIỜ VÀNG GIÁ SỐC ⚡</h2>
+      <div class="product-grid flash-sale-grid"></div>
+    </section>
+
+    <section class="products">
+      <h2>Sản phẩm nổi bật</h2>
+      <!-- Changed ID to distinguish from products.html's product-grid -->
+      <div class="product-grid" id="featured-products-slider"></div>
+    </section>
+
+    <!-- NEW: Products by Category Example (Mainboard) -->
+    <section class="products products-by-category">
+      <h2>Bo mạch chủ nổi bật</h2>
+      <div class="product-grid" id="mainboard-grid"></div>
+    </section>
+
+    <!-- NEW: Featured Brands -->
+    <section class="featured-brands">
+      <h2>Thương hiệu nổi bật</h2>
+      <div class="brands-grid">
+        <a href="#" class="brand-item"
+          ><img src="/assets/image/ASUS logo.png" alt="ASUS" loading="lazy"
+        /></a>
+        <a href="#" class="brand-item"
+          ><img src="assets/image/msi logo.png" alt="MSI" loading="lazy"
+        /></a>
+        <a href="#" class="brand-item"
+          ><img src="/assets/image/intel logo.png" alt="Intel" loading="lazy"
+        /></a>
+        <a href="#" class="brand-item"
+          ><img src="/assets/image/nvidia logo.png" alt="NVIDIA" loading="lazy"
+        /></a>
+        <a href="#" class="brand-item"
+          ><img
+            src="/assets/image/Samsung logo.png"
+            alt="Samsung"
+            loading="lazy"
+        /></a>
+        <a href="#" class="brand-item"
+          ><img
+            src="/assets/image/CORSAIRLogo2020_stack_K.png"
+            alt="Corsair"
+            loading="lazy"
+        /></a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="footer-col">
+          <h4>Về chúng tôi</h4>
+          <ul>
+            <li><a href="#">Giới thiệu về Your PC Parts Shop</a></li>
+            <li><a href="#">Tuyển dụng</a></li>
+            <li><a href="#">Hệ thống cửa hàng</a></li>
+            <li><a href="#">Tin tức & Sự kiện</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Chính sách chung</h4>
+          <ul>
+            <li><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách giao hàng</a></li>
+            <li><a href="#">Quy định thanh toán</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ khách hàng</h4>
+          <ul>
+            <li><a href="#">Hướng dẫn mua hàng online</a></li>
+            <li><a href="#">Hướng dẫn trả góp</a></li>
+            <li><a href="#">Câu hỏi thường gặp (FAQs)</a></li>
+            <li><a href="#">Tra cứu đơn hàng</a></li>
+            <li><a href="#">Liên hệ hỗ trợ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Thông tin liên hệ</h4>
+          <ul>
+            <li>
+              <i class="fa-solid fa-phone"></i> Hotline:
+              <a href="tel:0968239497">0968 239 497</a> -
+              <a href="tel:0972216881">097 221 6881</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> Email:
+              <a href="mailto:support@yourshop.vn">support@yourshop.vn</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i> CS1: 83-85 Thái Hà, Đống
+              Đa, Hà Nội
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i> CS2: 83A Cửu Long, P15,
+              Q10, TP.HCM
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i> Giờ làm việc: 8:00 - 20:00
+              (T2-CN)
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col social-connect">
+          <h4>Kết nối với chúng tôi</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Zalo"
+              ><i class="fa-solid fa-comment-dots"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Your PC Parts Shop. All rights reserved.</p>
+        <p>
+          Giấy phép kinh doanh số: 01072xxxx do Sở Kế hoạch và Đầu tư TP. Hà Nội
+          cấp ngày XX/XX/2015
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <button class="chatbot-btn" id="fab-menu" title="Mở danh mục">☰</button>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/script.js" defer></script>
+    <!-- Chatbot floating button -->
+    <button class="chatbot-btn" id="chatbot-btn" title="Chat hỗ trợ">💬</button>
+    <!-- Chatbot window -->
+    <div class="chatbot-window" id="chatbot-window" style="display: none">
+      <div class="chatbot-header">
+        Chat hỗ trợ
+        <button class="chatbot-close" id="chatbot-close" title="Đóng">
+          &times;
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div>Xin chào! Bạn cần hỗ trợ gì?</div>
+      </div>
+      <form class="chatbot-input-row" id="chatbot-form" autocomplete="off">
+        <input
+          class="chatbot-input"
+          id="chatbot-input"
+          type="text"
+          placeholder="Nhập tin nhắn..."
+        />
+        <button class="chatbot-send" type="submit">➤</button>
+      </form>
+    </div>
+    <script src="assets/js/chatbot.js"></script>
+  </body>
+</html>

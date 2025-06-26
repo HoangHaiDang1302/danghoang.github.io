@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--light-gray); /* Sử dụng biến */
+  color: var(--text-color); /* Sử dụng biến */
+}
+
+/* Register Form */
+.form-container.register-form {
+  background: var(--white); /* Sử dụng biến */
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(229,57,53,0.08), 0 1.5px 6px rgba(0,0,0,0.07); /* Sử dụng rgba với biến màu hoặc tính toán độ mờ */
+  padding: 36px 32px 28px 32px;
+  max-width: 400px;
+  margin: 48px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.form-container.register-form h2 {
+  color: var(--primary-color); /* Sử dụng biến */
+  margin-bottom: 22px;
+  font-size: 26px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.form-container .form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #222; /* Giữ màu đen đậm nếu là màu riêng cho label */
+  font-weight: 500;
+  font-size: 15.5px;
+  letter-spacing: 0.1px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid #e0e0e0; /* Có thể xem xét biến cho border-color */
+  border-radius: 7px;
+  font-size: 15.5px;
+  background: #fafafa; /* Có thể xem xét biến cho background input */
+  transition: border 0.2s, box-shadow 0.2s;
+  font-family: 'Roboto', Arial, sans-serif;
+  outline: none;
+}
+
+.form-group input:focus {
+  border: 1.5px solid var(--secondary-color); /* Sử dụng biến */
+  box-shadow: 0 0 0 2px var(--secondary-color-alpha-33, #ffd60033); /* Sử dụng biến hoặc định nghĩa alpha */
+}
+
+#register-btn {
+  width: 100%;
+  background: linear-gradient(90deg, var(--secondary-color) 60%, var(--primary-color) 100%); /* Sử dụng biến */
+  color: #222; /* Giữ màu đen cho chữ */
+  border: none;
+  border-radius: 7px;
+  padding: 12px 0;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.07); /* Có thể sử dụng biến alpha */
+  font-family: 'Roboto', Arial, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+#register-btn:hover {
+  background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%); /* Sử dụng biến */
+  color: var(--white); /* Sử dụng biến */
+}
+
+.form-container.register-form p {
+  margin-top: 10px;
+  font-size: 15.5px;
+  color: #444; /* Có thể xem xét biến */
+  text-align: center;
+}
+
+.form-container.register-form a {
+  color: var(--primary-color); /* Sử dụng biến */
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.form-container.register-form a:hover {
+  color: var(--secondary-color); /* Sử dụng biến */
+}

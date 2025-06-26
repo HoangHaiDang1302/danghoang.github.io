@@ -1,0 +1,275 @@
+/* assets/css/product-detail.css */
+
+.product-detail-container {
+  /* display: grid; /* Giữ lại nếu cần cho mobile */
+  /* grid-template-columns: 1fr; /* Mặc định 1 cột cho mobile */
+  /* gap: 24px; */
+  padding: 24px;
+  background-color: var(--white); /* Sử dụng biến */
+  border-radius: 12px; /* Đồng nhất border-radius với product-card */
+  box-shadow: var(--shadow); /* Sử dụng biến */
+  max-width: 1200px;
+  margin: 0 auto 24px auto;
+}
+
+.product-detail-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.product-image-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-product-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Có thể xem xét biến */
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumbnail-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border: 2px solid #eee; /* Có thể xem xét biến cho border-color */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.thumbnail-image:hover,
+.thumbnail-image.active {
+    border-color: var(--primary-color); /* Sử dụng biến */
+    box-shadow: 0 0 0 3px var(--primary-color-alpha-20, rgba(229, 57, 53, 0.2)); /* Sử dụng biến hoặc định nghĩa alpha */
+}
+
+.product-info {
+    padding: 0 10px;
+}
+
+.product-title {
+    font-size: 2.2rem;
+    color: var(--primary-color); /* Sử dụng biến */
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.product-meta {
+    font-size: 0.95rem;
+    color: #666; /* Có thể xem xét biến */
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.product-rating .star {
+    color: #ffc107; /* Giữ màu vàng ngôi sao nếu không có biến cụ thể */
+}
+
+.product-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Sử dụng biến */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.product-price .old-price {
+    font-size: 1.4rem;
+    color: #888; /* Có thể xem xét biến */
+    text-decoration: line-through;
+}
+
+.product-status .in-stock {
+    color: #28a745; /* Màu xanh lá cây cho 'Còn hàng' */
+    font-weight: bold;
+}
+
+.product-status .out-of-stock {
+    color: #dc3545; /* Màu đỏ cho 'Hết hàng' */
+    font-weight: bold;
+}
+
+.product-warranty {
+    font-size: 0.95rem;
+    color: #555; /* Có thể xem xét biến */
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    background: var(--secondary-color); /* Sử dụng biến */
+    color: var(--text-color); /* Sử dụng biến */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--secondary-color-hover, #ffc107); /* Biến hover hoặc mã cứng đã điều chỉnh */
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn.added {
+  background: #4CAF50 !important; /* Màu xanh lá khi thêm thành công */
+  color: var(--white) !important; /* Sử dụng biến */
+}
+
+.product-description,
+.product-specs {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee; /* Có thể xem xét biến */
+}
+
+.product-description h3,
+.product-specs h3 {
+    font-size: 1.5rem;
+    color: #333; /* Có thể xem xét biến */
+    margin-bottom: 15px;
+}
+
+.product-specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-specs ul li {
+    background: var(--light-gray); /* Sử dụng biến */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #444; /* Có thể xem xét biến */
+}
+
+.product-specs ul li strong {
+    color: #222; /* Có thể xem xét biến */
+}
+
+.related-products {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee; /* Có thể xem xét biến */
+}
+
+.related-products h3 {
+    font-size: 2rem;
+    color: var(--primary-color); /* Sử dụng biến */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.related-products-grid {
+    /* Uses .product-grid styles from styles.css */
+    /* On product-detail.html, this will display as a grid by default unless specifically overridden */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Use grid for related products */
+    gap: 20px;
+    overflow-x: unset; /* Disable horizontal scroll if it's a grid */
+    padding-bottom: 0;
+}
+
+/* Responsive styles for product-detail.html */
+@media (min-width: 768px) {
+    .product-detail-grid {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .product-image-gallery {
+        flex: 1;
+        max-width: 50%; /* Image takes half width */
+        align-self: flex-start; /* Align to top */
+    }
+
+    .product-info {
+        flex: 1;
+        max-width: 50%; /* Info takes half width */
+        padding-left: 20px;
+    }
+
+    .related-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-detail-container {
+        padding: 40px;
+    }
+    .product-title {
+        font-size: 2.8rem;
+    }
+    .product-price {
+        font-size: 2.5rem;
+    }
+    .product-image-gallery {
+        max-width: 40%; /* Adjust image width on larger screens */
+    }
+    .product-info {
+        max-width: 60%; /* Adjust info width */
+        padding-left: 40px;
+    }
+    .add-to-cart-btn {
+        max-width: 350px;
+    }
+    .related-products-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on large desktop */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-detail-container {
+        padding: 16px;
+    }
+    .product-title {
+        font-size: 1.8rem;
+    }
+    .product-price {
+        font-size: 1.6rem;
+    }
+    .product-price .old-price {
+        font-size: 1.1rem;
+    }
+    .add-to-cart-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    .thumbnail-image {
+        width: 60px;
+        height: 60px;
+    }
+    .related-products h3 {
+        font-size: 1.5rem;
+    }
+    .related-products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small mobile */
+        gap: 15px;
+    }
+}
