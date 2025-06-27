@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HỆ THỐNG QUẢN TRỊ NỘI DUNG</title>
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="admin-container">
+      <header class="admin-header">
+        <div class="admin-header-left">
+          <span class="admin-user"
+            ><i class="fas fa-user-shield"></i> ADMIN</span
+          >
+          <a href="#" class="admin-logout"
+            ><i class="fas fa-sign-out-alt"></i> Đăng xuất</a
+          >
+        </div>
+        <h1 class="admin-title">HỆ THỐNG QUẢN TRỊ NỘI DUNG</h1>
+      </header>
+
+      <div class="admin-main">
+        <aside class="admin-sidebar">
+          <nav class="admin-nav">
+            <ul>
+              <li class="nav-item active">
+                <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+              </li>
+
+              <li class="nav-item has-submenu">
+                <a href="#"
+                  ><i class="fas fa-chart-line"></i> Bán hàng
+                  <i class="fas fa-chevron-down submenu-arrow"></i
+                ></a>
+                <ul class="submenu">
+                  <li><a href="#">Hóa đơn bán</a></li>
+                  <li><a href="#">Khách hàng</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item has-submenu">
+                <a href="#"
+                  ><i class="fas fa-truck"></i> Nhập hàng
+                  <i class="fas fa-chevron-down submenu-arrow"></i
+                ></a>
+                <ul class="submenu">
+                  <li><a href="#">Hóa đơn nhập</a></li>
+                  <li><a href="#">Hàng sản xuất</a></li>
+                  <li><a href="#">Nhà cung cấp</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item has-submenu">
+                <a href="#"
+                  ><i class="fas fa-sitemap"></i> Danh mục
+                  <i class="fas fa-chevron-down submenu-arrow"></i
+                ></a>
+                <ul class="submenu">
+                  <li><a href="#">Sản phẩm</a></li>
+                  <li><a href="#">Chuyên mục</a></li>
+                  <li><a href="#">Slide show</a></li>
+                  <li><a href="#">Quảng cáo</a></li>
+                  <li><a href="#">Người dùng</a></li>
+                  <li><a href="#">Tài khoản</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <section class="admin-content">
+          <div class="dashboard-grid">
+            <div class="dashboard-tile red">
+              <i class="fas fa-box"></i>
+              <span>QUẢN LÝ SẢN PHẨM</span>
+            </div>
+            <div class="dashboard-tile cyan">
+              <i class="fas fa-newspaper"></i>
+              <span>QUẢN LÝ TIN ĐẶC BIỆT</span>
+            </div>
+            <div class="dashboard-tile green">
+              <i class="fas fa-images"></i>
+              <span>QUẢN LÝ SLIDE SHOW</span>
+            </div>
+            <div class="dashboard-tile blue">
+              <i class="fas fa-th-large"></i>
+              <span>QUẢN LÝ CHUYÊN MỤC</span>
+            </div>
+            <div class="dashboard-tile orange">
+              <i class="fas fa-handshake"></i>
+              <span>QUẢN LÝ NHÀ CUNG CẤP</span>
+            </div>
+            <div class="dashboard-tile teal">
+              <i class="fas fa-download"></i>
+              <span>QUẢN LÝ NHẬP HÀNG</span>
+            </div>
+            <div class="dashboard-tile light-green">
+              <i class="fas fa-upload"></i>
+              <span>QUẢN LÝ BÁN HÀNG</span>
+            </div>
+            <div class="dashboard-tile light-blue">
+              <i class="fas fa-ad"></i>
+              <span>QUẢN LÝ QUẢNG CÁO</span>
+            </div>
+            <div class="dashboard-tile dark-orange">
+              <i class="fas fa-user-circle"></i>
+              <span>QUẢN LÝ TÀI KHOẢN</span>
+            </div>
+            <div class="dashboard-tile purple">
+              <i class="fas fa-industry"></i>
+              <span>QUẢN LÝ HÀNG SẢN XUẤT</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript cho chức năng submenu (mở/đóng)
+      document.querySelectorAll(".nav-item.has-submenu > a").forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault(); // Ngăn chặn link chuyển hướng
+          const parentLi = this.closest(".nav-item");
+          parentLi.classList.toggle("open"); // Thêm/xóa class 'open' để mở/đóng submenu
+        });
+      });
+    </script>
+  </body>
+</html>

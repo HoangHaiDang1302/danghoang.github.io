@@ -1,0 +1,281 @@
+/* admin.css */
+
+/* General Styles & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Admin Container Layout */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.admin-header {
+  background-color: #e53935; /* Primary red color */
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-user {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.admin-user i,
+.admin-logout i {
+  margin-right: 5px;
+}
+
+.admin-logout {
+  color: #ffd600; /* Secondary yellow color */
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.admin-logout:hover {
+  color: #ffc107; /* Darker yellow on hover */
+}
+
+.admin-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1; /* Allow title to take available space */
+}
+
+/* Main Content Area */
+.admin-main {
+  display: flex;
+  flex: 1; /* Allows main content to grow and fill available space */
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 250px;
+  background-color: #2c3e50; /* Dark blue/gray */
+  color: #ecf0f1; /* Light text color */
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.admin-nav ul {
+  padding: 0;
+}
+
+.admin-nav .nav-item {
+  position: relative;
+}
+
+.admin-nav .nav-item > a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #ecf0f1;
+  font-size: 1.05em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.admin-nav .nav-item > a i {
+  margin-right: 10px;
+  width: 20px; /* Ensure consistent icon spacing */
+  text-align: center;
+}
+
+.admin-nav .nav-item:hover > a {
+  background-color: #34495e; /* Slightly lighter dark blue on hover */
+}
+
+.admin-nav .nav-item.active > a {
+  background-color: #e53935; /* Primary red for active item */
+  color: white;
+  font-weight: bold;
+}
+
+/* Submenu Styles */
+.admin-nav .nav-item.has-submenu > a .submenu-arrow {
+  margin-left: auto; /* Push arrow to the right */
+  transition: transform 0.3s ease;
+}
+
+.admin-nav .nav-item.has-submenu.open > a .submenu-arrow {
+  transform: rotate(90deg); /* Rotate arrow when submenu is open */
+}
+
+.admin-nav .submenu {
+  max-height: 0; /* Hidden by default */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #34495e; /* Darker background for submenu */
+}
+
+.admin-nav .nav-item.open .submenu {
+  max-height: 300px; /* Arbitrary large enough value to show all items */
+}
+
+.admin-nav .submenu li a {
+  display: block;
+  padding: 10px 20px 10px 45px; /* Indent submenu items */
+  font-size: 0.95em;
+  color: #bdc3c7; /* Lighter gray for submenu text */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.admin-nav .submenu li a:hover {
+  background-color: #49637c; /* Even darker on hover */
+  color: white;
+}
+
+/* Content Area (Dashboard Tiles) */
+.admin-content {
+  flex-grow: 1; /* Allow content to fill remaining space */
+  padding: 20px;
+  background-color: #f0f2f5;
+  overflow-y: auto; /* Enable scrolling for content if it overflows */
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+}
+
+.dashboard-tile {
+  background-color: white;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 150px; /* Ensure a minimum height for tiles */
+}
+
+.dashboard-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-tile i {
+  font-size: 3em;
+  margin-bottom: 15px;
+  opacity: 0.8; /* Make icon slightly transparent */
+}
+
+/* Tile Colors - based on image */
+.dashboard-tile.red {
+  background-color: #e53935;
+}
+.dashboard-tile.cyan {
+  background-color: #00bcd4;
+}
+.dashboard-tile.green {
+  background-color: #4caf50;
+}
+.dashboard-tile.blue {
+  background-color: #2196f3;
+}
+.dashboard-tile.orange {
+  background-color: #ff9800;
+}
+.dashboard-tile.teal {
+  background-color: #009688;
+}
+.dashboard-tile.light-green {
+  background-color: #8bc34a;
+}
+.dashboard-tile.light-blue {
+  background-color: #03a9f4;
+}
+.dashboard-tile.dark-orange {
+  background-color: #ff5722;
+}
+.dashboard-tile.purple {
+  background-color: #9c27b0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .admin-header-left {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .admin-main {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%; /* Sidebar takes full width on small screens */
+    height: auto;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow at bottom */
+  }
+
+  .admin-nav .nav-item.has-submenu .submenu {
+    /* On small screens, keep submenus visible if parent is open */
+    max-height: unset;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Smaller tiles */
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}
